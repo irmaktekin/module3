@@ -1,0 +1,6 @@
+package com.springDemo.SpringDemo.storage;
+
+public interface InitializeData {
+	public void initalizeData();
+
+}

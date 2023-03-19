@@ -1,0 +1,19 @@
+package IntegrationTest;
+
+import org.junit.Before;
+import org.springframework.context.ApplicationContext;
+
+//create user
+//create event
+//book ticket
+//cancel it
+public class IntegrationTest {
+	
+ApplicationContext appContext;
+@Before
+
+public void setup() {
+	
+}
+
+}

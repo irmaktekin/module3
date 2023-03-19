@@ -1,0 +1,5 @@
+package com.springDemo.SpringDemo.storage;
+
+public class UserDataInit {
+
+}

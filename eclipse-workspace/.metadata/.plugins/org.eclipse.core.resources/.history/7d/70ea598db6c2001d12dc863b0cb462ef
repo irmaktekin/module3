@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <bean class="facade.FacadeImp" id="bookingFacade" c:first-ref="userService"
+      c:second-ref="eventService" c:third-ref="ticketService">
+      </bean>
+      <bean class="service.UserServiceImp" id="userService" p:userDao-ref="userDao">
+      </bean>
+       <bean class="service.EventServiceImp" id="eventService" p:eventDao-ref="eventDao">
+      </bean>
+ 		<bean class="service.TicketServiceImp" id="ticketService" p:ticketDao-ref="ticketDao"
+ 		p:userDao-ref="userDao" p:eventDao-ref="eventDao">
+      </bean>
+      <bean class="dao.UserDaoImp" id="userDao" >
+      </bean>
+      <bean class="com.example.demo.storage.Storage" id="storage">
+      </bean>
+
+</beans>

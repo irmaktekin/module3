@@ -1,0 +1,94 @@
+package com.springDemo.SpringDemo.models;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class TicketImp implements Ticket {
+	  @Override
+	public String toString() {
+		return "TicketImp [event_id=" + event_id + ", id=" + id + ", user_id=" + user_id + ", category=" + category
+				+ ", place=" + place + "]";
+	}
+
+	private static final AtomicInteger count = new AtomicInteger(0); 
+
+	public TicketImp(long event_id, long user_id, Category category, int place) {
+		super();
+		this.event_id = event_id;
+		this.id = count.incrementAndGet();
+		this.user_id = user_id;
+		this.category = category;
+		this.place = place;
+	}
+
+	private long event_id;
+	private long id;
+	private long user_id;
+	private  Category category;
+	private int place;
+
+	@Override
+	public long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	@Override
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+		this.id=id;
+		
+	}
+
+	@Override
+	public long getEventId() {
+		// TODO Auto-generated method stub
+		return event_id;
+	}
+
+	@Override
+	public void setEventId(long eventId) {
+		// TODO Auto-generated method stub
+		this.event_id=eventId;
+		
+	}
+
+	@Override
+	public long getUserId() {
+		// TODO Auto-generated method stub
+		return user_id;
+	}
+
+	@Override
+	public void setUserId(long userId) {
+		// TODO Auto-generated method stub
+		this.user_id = userId;
+		
+	}
+
+	@Override
+	public Category getCategory() {
+		// TODO Auto-generated method stub
+		return category;
+	}
+
+	@Override
+	public void setCategory(Category category) {
+		// TODO Auto-generated method stub
+		this.category=category;
+		
+	}
+
+	@Override
+	public int getPlace() {
+		// TODO Auto-generated method stub
+		return place;
+	}
+
+	@Override
+	public void setPlace(int place) {
+		// TODO Auto-generated method stub
+		this.place=place;
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+package com.springDemo.SpringDemo.services;
+
+import org.junit.Before;
+import org.mockito.Mockito;
+
+import com.springDemo.SpringDemo.dao.TicketDaoImp;
+
+public class TicketServiceImpTest {
+
+		private TicketServiceImp ticketService;
+		private TicketDaoImp mockTicketDao;
+		
+		@Before
+		public  void setup() {
+			mockTicketDao = Mockito.mock(TicketDaoImp.class);
+			ticketService = new TicketServiceImp();
+			ticketService.setTicketDao(mockTicketDao);
+			
+		}
+		
+		@Test
+		public void whenEventId_ThenEventReturn() {
+			Event event = new EventImp("event22",new Date());
+			when(mockEventDao.getEventById(anyLong())).thenReturn(event);
+			Event event_returned = eventService.getEventById(1);
+			assertEquals(event,event_returned);
+		}
+		@Test
+		public void whenCreatEvent_ThenReturnCreatedEvent() {
+			Event event = new EventImp("event45",new Date());
+			when(mockEventDao.createEvent(any(Event.class))).thenReturn(event);
+			Event event_created = eventService.createEvent(event);
+			assertEquals(event,event_created);
+		
+			
+		
+		}
+	}
+
+
+

@@ -1,0 +1,83 @@
+package com.springDemo.SpringDemo;
+
+import java.io.File;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springDemo.SpringDemo.facade.BookingFacade;
+import com.springDemo.SpringDemo.models.Event;
+import com.springDemo.SpringDemo.models.EventImp;
+import com.springDemo.SpringDemo.models.Ticket;
+import com.springDemo.SpringDemo.models.TicketImp;
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.models.UserImp;
+
+
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+		BookingFacade facade = (BookingFacade)context.getBean("bookingFacade");
+		User user = new UserImp("irmak","irmak@gmail.com");
+		User user2 = new UserImp("irmaktekin","irmak@gmail.com");
+		//Ticket is booked for user id 1, event id 1, standart category.
+		Ticket ticket = new TicketImp(1,1,Ticket.Category.STANDARD,1);
+	     /* Date date = new Date();
+	      Calendar c = Calendar.getInstance();
+	      c.setTime(date);
+	      int day = c.get(Calendar.DAY_OF_WEEK);
+	      String dayWeekText = new SimpleDateFormat("EEEE").format(date);
+	        System.out.println("Day of week in text:"+dayWeekText);
+	    */
+
+		Event event = new EventImp("event1", new Date());
+	
+		//Event event2 = new EventImp("event22", date);
+
+		//facade.createUser(user);
+		facade.createUser(user2);
+	//	facade.createEvent(event2);
+		facade.createEvent(event);
+
+		//facade.getUsersByName("se",0,0);
+		//facade.getEventsByTitle("event22", 0, 0);
+		//json2Java("user.json",UserImp.class);
+		facade.updateUser(user);
+		facade.getBookedTickets(user, 0, 0);
+
+
+
+    }
+    /*
+    public static <T> T json2Java(String fileName, Class<T> classType) {
+		T t = null;
+		File file = new File("src/main/resources/"+fileName);
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			t=mapper.readValue(file,classType);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return t;
+	}*/
+   
+}

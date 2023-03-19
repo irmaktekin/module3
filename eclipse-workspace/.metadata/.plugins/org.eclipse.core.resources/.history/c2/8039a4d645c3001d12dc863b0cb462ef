@@ -1,0 +1,11 @@
+package com.springDemo.SpringDemo.storage;
+
+public class UserDataInit implements InitializeData{
+
+	@Override
+	public void initalizeData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

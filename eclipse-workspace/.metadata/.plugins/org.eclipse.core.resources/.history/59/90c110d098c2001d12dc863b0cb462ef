@@ -1,0 +1,52 @@
+package dao;
+
+import java.util.List;
+
+import com.example.demo.storage.Storage;
+
+import model.User;
+
+public class UserDaoImp implements UserDAO{
+	private Storage storage;
+	
+
+	@Override
+	public User getUserById(long userId) {
+		// TODO Auto-generated method stub
+		User user = storage.getById(userId);
+		return null;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+	    storage.addPair(user.getId(), user)
+		return storage.addPair(user.getId(), user);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteUser(long userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+}

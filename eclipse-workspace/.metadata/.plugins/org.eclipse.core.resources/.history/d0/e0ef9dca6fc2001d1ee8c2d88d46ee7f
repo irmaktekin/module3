@@ -1,0 +1,57 @@
+package com.example.demo.storage;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import model.Event;
+import model.Ticket;
+import model.User;
+
+public class Storage {
+	
+	private HashMap <String, List<User>> users;
+
+	
+	public HashMap <String, List<User>> getUsers() {
+		return users;
+	}
+
+	public void setUsers(HashMap <String, List<User>>  users) {
+		this.users = users;
+	}
+
+	
+
+
+	
+	public Storage() {
+		super();
+		users = new HashMap<String, List<User>>();
+	}
+
+	
+	
+	//for creating user
+	public void addUser(User user) {
+		users.put("name",user.getName());
+		users.put("email", user.getEmail());
+		
+	}
+	
+	public void printAll() {
+		for(Map.Entry<String,  List<User>> set:users.entrySet()) {
+			System.out.println(set.getValue());
+			
+			
+		}
+		System.out.println(users);
+	}
+	
+	
+	
+		
+	
+
+}

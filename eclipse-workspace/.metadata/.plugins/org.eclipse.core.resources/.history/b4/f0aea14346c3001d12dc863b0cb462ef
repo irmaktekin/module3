@@ -1,0 +1,26 @@
+package com.springDemo.SpringDemo.storage;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class UserDataInit implements InitializeData{
+	String fileName ="user.txt";
+	String line =null;
+	
+
+	@Override
+	public void initalizeData() {
+		// TODO Auto-generated method stub
+
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			while((line=bufferedReader.readLine())!=null)) {
+				System.out.println(line);
+			}
+		}
+		
+		
+	}
+
+}

@@ -1,0 +1,60 @@
+package com.springDemo.SpringDemo.services;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.springDemo.SpringDemo.dao.EventDAO;
+import com.springDemo.SpringDemo.models.Event;
+import com.springDemo.SpringDemo.models.User;
+
+@Component
+
+public class EventServiceImp implements EventService{
+	private EventDAO eventDao;
+
+	
+	@Autowired
+	public void setEventDao(EventDAO eventDao) {
+		this.eventDao = eventDao;
+	}
+
+	@Override
+	public Event getEventById(long eventId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Event createEvent(Event event) {
+		// TODO Auto-generated method stub
+		Event createdEvent = eventDao.createEvent(event);
+		return createdEvent;	}
+
+	@Override
+	public Event updateEvent(Event event) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteEvent(long eventId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

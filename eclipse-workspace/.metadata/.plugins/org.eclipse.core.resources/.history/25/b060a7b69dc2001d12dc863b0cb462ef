@@ -1,0 +1,41 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.example.demo.storage.Storage;
+
+import dao.UserDaoImp;
+
+import model.User;
+import model.UserImp;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+		//ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		User user = new UserImp("irmak","irmak@gmail.com");
+//		User user2 = new UserImp("ayse","irmak@gmail.com");
+//
+		Storage list = new Storage();
+		list.addPair("1", "hey");
+//		List myList = new ArrayList <User>();
+//		myList.add(user);
+//		myList.add(user2);
+//		list.addUser(myList);
+//		list.printAll();
+
+
+	
+		
+ 
+	}
+
+}

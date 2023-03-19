@@ -1,0 +1,113 @@
+package facade;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import model.Event;
+import model.Ticket;
+import model.Ticket.Category;
+import model.User;
+import service.EventService;
+import service.TicketService;
+import service.UserService;
+
+public class FacadeImp implements BookingFacade{
+
+	private UserService userService;
+	private EventService eventService;
+	private TicketService ticketService;
+	@Override
+	public Event getEventById(long eventId) {
+		// TODO Auto-generated method stub
+		Event event = eventService.getEventById(eventId);
+		return event;
+	}
+	@Override
+	public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		List <Event> events = eventService.getEventsByTitle(title, pageSize, pageNum);
+		return events;
+	}
+	@Override
+	public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Event createEvent(Event event) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Event updateEvent(Event event) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean deleteEvent(long eventId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public User getUserById(long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean deleteUser(long userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public Ticket bookTicket(long userId, long eventId, int place, Category category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean cancelTicket(long ticketId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Autowired
+	public FacadeImp(UserService userService, EventService eventService, TicketService ticketService) {
+		super();
+		this.userService = userService;
+		this.eventService = eventService;
+		this.ticketService = ticketService;
+	}
+	
+
+}

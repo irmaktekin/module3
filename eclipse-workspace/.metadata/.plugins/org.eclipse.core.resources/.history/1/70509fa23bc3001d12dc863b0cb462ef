@@ -1,0 +1,61 @@
+package com.springDemo.SpringDemo.dao;
+
+import java.util.List;
+
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.storage.Storage;
+
+
+
+
+public class UserDaoImp implements UserDAO{
+
+	private Storage storage;
+	
+
+	@Override
+	public User getUserById(long userId) {
+		// TODO Auto-generated method stub
+		User user = storage.getById(USER+userId);
+		return user;
+	}
+
+	public void setStorage(Storage storage) {
+		this.storage = storage;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User createUser(User user) {
+		User userCreated = storage.addPair(Constants.USER+user.getId(),user);
+
+		return user;
+		// TODO Auto-generated method stub
+	  
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteUser(long userId) {
+		// TODO Auto-generated method stub
+		return storage.delete(userId);
+	}
+
+
+}

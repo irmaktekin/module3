@@ -1,0 +1,41 @@
+package com.springDemo.SpringDemo.dao;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+
+import com.springDemo.SpringDemo.models.Ticket;
+import com.springDemo.SpringDemo.models.TicketImp;
+import com.springDemo.SpringDemo.storage.Storage;
+
+public class TicketDaoTest {
+	private TicketDaoImp ticketDao;
+	private Storage storage;
+	
+	
+	@Before
+	public void setup() {
+		ticketDao = new TicketDaoImp();
+		storage = mock(Storage.class);
+		ticketDao.setStorage(storage);
+		
+	}
+	
+	@Test
+	public void createTicketThenReturn() {
+		Ticket ticket = new TicketImp(1,1,Ticket.Category.PREMIUM,3);
+        when(storage.addPair(anyString(), any(Ticket.class))).thenReturn(ticket);
+		Ticket createdTicket =
+				ticketDao.bookTicket(1, 1, 3, Ticket.Category.PREMIUM);
+		
+		assertEquals(ticket,createdTicket);
+		
+	}
+
+}

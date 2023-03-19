@@ -1,0 +1,67 @@
+package com.springDemo.SpringDemo.dao;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.storage.Storage;
+ import com.springDemo.SpringDemo.dao.Constants;
+
+
+
+
+public class UserDaoImp implements UserDAO{
+
+	private Storage storage;
+	public static final String USER = "user";
+    private static final Logger logger = Logger.getLogger(UserDaoImp.class);
+
+
+	@Override
+	public User getUserById(long userId) {
+		// TODO Auto-generated method stub
+		User user = storage.getById(USER+userId);
+		logger.debug("User id is:" + userId + user);
+		return user;
+	}
+
+	public void setStorage(Storage storage) {
+		this.storage = storage;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User createUser(User user) {
+		User userCreated = storage.addPair(Constants.USER+user.getId(),user);
+
+		return user;
+		// TODO Auto-generated method stub
+	  
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteUser(long userId) {
+		// TODO Auto-generated method stub
+		return storage.delete(userId);
+	}
+
+
+}

@@ -1,0 +1,80 @@
+package com.springDemo.SpringDemo.storage;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+@Component	
+public class Storage implements BeanPostProcessor {
+	
+private HashMap <String, Object> hashMap = new HashMap<>();	
+Logger logger = Logger.getLogger(Storage.class);
+String fileName ="user.txt";
+String line =null;
+
+
+public <T> T getById(String id) {
+	T entity = (T)hashMap.get(id);
+	return entity;
+	
+}
+
+public <T> T addPair(String key, T value){
+	logger.debug("addPair is executed from storage");
+	hashMap.put(key, value);
+
+
+	System.out.println(hashMap);
+
+	return value;
+	
+}
+public boolean delete(long key) {
+	return (boolean) hashMap.remove(key);
+			
+}
+public Object postProcessBeforeInitialization(
+        Object bean, String beanName) throws BeansException
+    {
+        System.out.println(
+            "postProcessBeforeInitialization() is called for Storage");
+
+		try {
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			while((line=bufferedReader.readLine())!=null){
+				System.out.println(line);
+			}
+			bufferedReader.close();
+		}
+		catch(FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+
+		}
+		catch(IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
+			}
+        return bean;
+    }
+
+
+	
+	
+}
+	
+	
+	
+	
+	
+		
+	
+

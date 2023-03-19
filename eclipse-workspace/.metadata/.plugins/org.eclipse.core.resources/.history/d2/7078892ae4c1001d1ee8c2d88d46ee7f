@@ -1,0 +1,54 @@
+package model;
+
+public class UserImp implements User{
+	public UserImp(long id, String name, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+	}
+
+	private long id;
+	private String name;
+	private String email;
+
+	@Override
+	public long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	@Override
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+		this.id= id;
+		
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		this.name=name;
+		
+	}
+
+	@Override
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return email;
+	}
+
+	@Override
+	public void setEmail(String email) {
+		// TODO Auto-generated method stub
+		this.email=email;
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.springDemo.SpringDemo.dao;
+
+public class TicketDaoTest {
+	private TicketDAO ticketDao;
+	
+	@Mock
+	private Storage storage;
+
+}

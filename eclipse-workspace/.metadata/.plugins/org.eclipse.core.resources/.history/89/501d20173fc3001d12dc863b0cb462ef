@@ -1,0 +1,59 @@
+package com.springDemo.SpringDemo.dao;
+
+import java.util.Date;
+import java.util.List;
+
+import com.springDemo.SpringDemo.models.Event;
+import com.springDemo.SpringDemo.storage.Storage;
+
+
+
+public class EventDaoImp implements EventDAO {
+	public static final String EVENT = "event";
+
+	private Storage storage;
+	public void setStorage(Storage storage) {
+		this.storage = storage;
+	}
+
+
+	@Override
+	public Event getEventById(long eventId) {
+		// TODO Auto-generated method stub
+		Event event = storage.getById(EVENT+eventId);
+		return event;
+	}
+
+	@Override
+	public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Event createEvent(Event event) {
+		// TODO Auto-generated method stub
+		Event eventCreated = storage.addPair(Constants.EVENT+event.getId(),event);
+
+		return eventCreated;
+	}
+
+	@Override
+	public Event updateEvent(Event event) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteEvent(long eventId) {
+		// TODO Auto-generated method stub
+		return storage.delete(eventId);
+	}
+
+}

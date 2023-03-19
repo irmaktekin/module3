@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dao.UserJDBCTemplate;
+import model.User;
+import model.UserImp;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		UserJDBCTemplate userJDBCTemplate = (UserJDBCTemplate)context.getBean("studentJDBCTemplate");
+		userJDBCTemplate.createUser(new UserImp("Irmak","irmaktek@gmail.com"));
+		userJDBCTemplate.createUser(new UserImp("Irmak","irmaktek@gmail.com"));
+
+		List<User> users = userJDBCTemplate.getUsersByName("irmak",0,0);
+		
+	}
+
+}

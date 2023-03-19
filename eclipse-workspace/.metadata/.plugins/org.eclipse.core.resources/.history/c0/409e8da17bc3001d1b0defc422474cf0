@@ -1,0 +1,7 @@
+package com.springDemo.SpringDemo.processor;
+
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+public class ProcessorData  implements BeanPostProcessor {
+
+}

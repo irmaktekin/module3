@@ -1,0 +1,36 @@
+package com.springDemo.SpringDemo.services;
+
+import org.apache.log4j.Logger;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.springDemo.SpringDemo.dao.UserDAO;
+import com.springDemo.SpringDemo.dao.UserDaoImp;
+import com.springDemo.SpringDemo.storage.Storage;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserServiceImpTest {
+	
+	private UserServiceImp userService;
+	private UserDAO mockUserDao;
+	
+	@BeforeClass
+	public void setup() {
+		Logger logger = Logger.getLogger(UserServiceImp.class);
+		logger.debug("Initializing objects for testing UserService");
+		mockUserDao = Mockito.mock(UserDaoImp.class);
+		userService = new UserServiceImp();
+		userService.setUserDao(null);
+		
+	}
+	
+	@Test
+	public void whenUserId_ThenUserReturn() {
+		
+	}
+	
+
+}

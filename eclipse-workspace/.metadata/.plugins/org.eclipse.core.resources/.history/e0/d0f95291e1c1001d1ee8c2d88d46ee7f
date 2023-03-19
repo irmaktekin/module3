@@ -1,0 +1,8 @@
+package dao;
+
+import javax.sql.DataSource;
+
+public interface UserDAO {
+	
+
+}

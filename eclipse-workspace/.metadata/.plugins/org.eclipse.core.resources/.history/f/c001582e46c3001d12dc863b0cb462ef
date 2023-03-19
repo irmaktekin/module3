@@ -1,0 +1,13 @@
+package com.springDemo.SpringDemo.storage;
+
+public class UserDataInit implements InitializeData{
+	String fileName ="user.txt";
+
+	@Override
+	public void initalizeData() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}

@@ -1,0 +1,24 @@
+package IntegrationTest;
+
+import org.junit.Before;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.springDemo.SpringDemo.facade.BookingFacade;
+
+//create user
+//create event
+//book ticket
+//cancel it
+public class IntegrationTest {
+	
+ApplicationContext appContext;
+BookingFacade bookingFacade;
+@Before
+
+public void setup() {
+	appContext = new ClassPathXmlApplicationContext("src/main/resources/config.xml");
+	bookingFacade= (BookingFacade) appContext.getBean("bookingFacade");
+}
+
+}

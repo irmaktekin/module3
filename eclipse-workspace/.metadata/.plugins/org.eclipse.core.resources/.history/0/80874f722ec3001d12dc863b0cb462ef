@@ -1,0 +1,47 @@
+package com.springDemo.SpringDemo.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import dao.TicketDAO;
+import model.Event;
+import model.Ticket;
+import model.Ticket.Category;
+import model.User;
+
+@Component
+public class TicketServiceImp implements TicketService{
+	@Autowired
+	public void setTicketDao(TicketDAO ticketDao) {
+		this.ticketDao = ticketDao;
+	}
+
+	private TicketDAO ticketDao;
+
+	@Override
+	public Ticket bookTicket(long userId, long eventId, int place, Category category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean cancelTicket(long ticketId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

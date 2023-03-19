@@ -1,0 +1,7 @@
+/*package com.springDemo.SpringDemo.storage;
+
+public interface ProcessedBean {
+	 <T> T json2Java(String fileName, Class<T> classType);
+
+}
+*/

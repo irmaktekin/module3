@@ -1,0 +1,26 @@
+package com.springDemo.SpringDemo.processor;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+import com.springDemo.SpringDemo.models.UserImp;
+import com.springDemo.SpringDemo.storage.Storage;
+import com.springDemo.SpringDemo.storage.jsonToUser;
+
+public class ProcessorData  implements BeanPostProcessor {
+	public ProcessorData(jsonToUser user) {
+		super();
+		this.userJson = user;
+	}
+	private jsonToUser userJson;
+	Logger logger = Logger.getLogger(ProcessorData.class);
+	public Object postProcessAfterInitialization(
+	        Object bean, String beanName) throws BeansException
+	    {
+	        logger.debug("postProcessAfterInitialization() is called for Storage");
+	        userJson.json2Java();
+	        return bean;
+	    }
+		
+	}

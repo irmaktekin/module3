@@ -1,0 +1,5 @@
+package com.springDemo.SpringDemo.dao;
+
+public class TicketDaoTest {
+
+}

@@ -1,0 +1,69 @@
+package model;
+
+public class TicketImp implements Ticket {
+	private long event_id;
+	private long user_id;
+	private  Category category;
+	private int place;
+
+	@Override
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public long getEventId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setEventId(long eventId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public long getUserId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setUserId(long userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Category getCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCategory(Category category) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getPlace() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setPlace(int place) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package facade;
+
+import model.Event;
+import model.Ticket;
+import model.User;
+
+public class FacadeImp {
+	private User user;
+	private Event event;
+	private Ticket ticket;
+	
+
+	
+
+}

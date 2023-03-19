@@ -1,0 +1,70 @@
+package IntegrationTest;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Date;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.springDemo.SpringDemo.facade.BookingFacade;
+import com.springDemo.SpringDemo.models.Event;
+import com.springDemo.SpringDemo.models.EventImp;
+import com.springDemo.SpringDemo.models.Ticket;
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.models.UserImp;
+import com.springDemo.SpringDemo.storage.Storage;
+
+//create user
+//create event
+//book ticket
+//cancel it
+public class IntegrationTest {
+	
+ApplicationContext appContext;
+BookingFacade bookingFacade;
+Storage storage;
+@Before
+
+public void setup() {
+	appContext = new ClassPathXmlApplicationContext("src/main/resources/config.xml");
+	bookingFacade= (BookingFacade) appContext.getBean("bookingFacade");
+	storage = new Storage();
+			
+}
+
+@Test
+public void createUserAndBookTicket() {
+	//check the creation of user
+	User user = new UserImp("irmak","irmak@gmail.com");
+	User newUser = bookingFacade.createUser(user);
+	assertEquals(user,newUser);
+	//check the creation of event
+	Event event = new EventImp("event1", new Date());
+	Event newEvent = bookingFacade.createEvent(event);
+	assertEquals(event,newEvent);
+	//book ticket for specifing user and event
+	Ticket ticket = bookingFacade.bookTicket(user.getId(), event.getId(), 5, Ticket.Category.STANDARD);
+	assertEquals(event, storage.getById("event"+event.getId()));
+	assertEquals(user, storage.getById("user"+user.getId()));
+	//cancel ticket
+	boolean isCancelled = bookingFacade.cancelTicket(ticket.getId());
+	assertTrue(isCancelled);
+}
+
+@Test 
+public void createUserBookTicketandGetByEvent() {
+	User user = new UserImp("ayse","ayse@gmail.com");
+	User newUser = bookingFacade.createUser(user);
+	assertEquals(user,newUser);
+	Event event = new EventImp("event1", new Date());
+	Event newEvent = bookingFacade.createEvent(event);
+	Ticket ticket = bookingFacade.bookTicket(user.getId(), event.getId(), 5, Ticket.Category.STANDARD);
+	assertEquals(event, storage.getById("event"+ticket.getEventId()));
+}
+
+
+}

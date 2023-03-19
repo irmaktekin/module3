@@ -1,0 +1,18 @@
+package com.springDemo.SpringDemo.storage;
+
+import java.io.File;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springDemo.SpringDemo.models.User;
+
+public class jsonToUser{
+		private Storage storage;
+	public void setStorage(Storage storage) {
+			this.storage = storage;
+	}
+
+	public void insert(User user) {
+		storage.addPair("User"+ user.getId()+"is putting",user);
+	}
+}

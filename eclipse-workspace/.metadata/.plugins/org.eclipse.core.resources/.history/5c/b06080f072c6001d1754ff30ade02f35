@@ -1,0 +1,23 @@
+package com.springDemo.SpringDemo.dao;
+
+import static org.mockito.Mockito.mock;
+
+import org.junit.Before;
+import org.mockito.Mock;
+
+import com.springDemo.SpringDemo.storage.Storage;
+
+public class TicketDaoTest {
+	private TicketDaoImp ticketDao;
+	private Storage storage;
+	
+	
+	@Before
+	public void setup() {
+		ticketDao = new TicketDaoImp();
+		storage = mock(Storage.class);
+		ticketDao.setStorage(storage);
+		
+	}
+
+}

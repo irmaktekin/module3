@@ -1,0 +1,46 @@
+package IntegrationTest;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Date;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.springDemo.SpringDemo.facade.BookingFacade;
+import com.springDemo.SpringDemo.models.Event;
+import com.springDemo.SpringDemo.models.EventImp;
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.models.UserImp;
+
+//create user
+//create event
+//book ticket
+//cancel it
+public class IntegrationTest {
+	
+ApplicationContext appContext;
+BookingFacade bookingFacade;
+@Before
+
+public void setup() {
+	appContext = new ClassPathXmlApplicationContext("src/main/resources/config.xml");
+	bookingFacade= (BookingFacade) appContext.getBean("bookingFacade");
+}
+
+@Test
+public void createUserAndBookTicket() {
+	//check the creation of user
+	User user = new UserImp(1,"irmak","irmak@gmail.com");
+	User newUser = bookingFacade.createUser(user);
+	assertEquals(user,newUser);
+	//check the creation of event
+	Event event = new EventImp(1,"event1", new Date());
+	Event newEvent = bookingFacade.createEvent(event);
+	assertEquals(event,newEvent);
+	
+}
+
+}

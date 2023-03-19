@@ -1,0 +1,8 @@
+package IntegrationTest;
+//create user
+//create event
+//book ticket
+//cancel it
+public class IntegrationTest {
+
+}

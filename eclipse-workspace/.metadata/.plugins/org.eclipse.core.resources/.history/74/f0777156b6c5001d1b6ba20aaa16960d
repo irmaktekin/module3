@@ -1,0 +1,11 @@
+package com.springDemo.SpringDemo.services;
+
+
+
+
+public class UserServiceImpTest {
+	
+	private UserServiceImp userService;
+	
+
+}

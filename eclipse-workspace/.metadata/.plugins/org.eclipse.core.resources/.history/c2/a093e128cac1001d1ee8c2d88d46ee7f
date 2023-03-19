@@ -1,0 +1,43 @@
+package model;
+
+import java.util.Date;
+
+public class EventImp implements Event{
+
+	@Override
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setTitle(String title) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Date getDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDate(Date date) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

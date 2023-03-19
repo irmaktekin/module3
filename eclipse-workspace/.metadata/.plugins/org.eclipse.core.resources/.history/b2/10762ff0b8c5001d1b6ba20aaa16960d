@@ -1,0 +1,42 @@
+package com.springDemo.SpringDemo.services;
+
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
+
+import org.apache.log4j.Logger;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.springDemo.SpringDemo.dao.UserDAO;
+import com.springDemo.SpringDemo.dao.UserDaoImp;
+import com.springDemo.SpringDemo.models.User;
+import com.springDemo.SpringDemo.models.UserImp;
+import com.springDemo.SpringDemo.storage.Storage;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserServiceImpTest {
+	
+	private UserServiceImp userService;
+	private UserDAO mockUserDao;
+	
+	@BeforeClass
+	public void setup() {
+		Logger logger = Logger.getLogger(UserServiceImp.class);
+		logger.debug("Initializing objects for testing UserService");
+		mockUserDao = Mockito.mock(UserDaoImp.class);
+		userService = new UserServiceImp();
+		userService.setUserDao(null);
+		
+	}
+	
+	@Test
+	public void whenUserId_ThenUserReturn() {
+		User user = new UserImp(1,"userTest","user@gmail.com");
+		when(mockUserDao.getUserById(anyLong())).thenReturn(user);
+	}
+	
+
+}

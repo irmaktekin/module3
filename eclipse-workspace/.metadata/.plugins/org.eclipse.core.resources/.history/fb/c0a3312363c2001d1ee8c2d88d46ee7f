@@ -1,0 +1,52 @@
+package service;
+
+import java.util.List;
+
+import dao.UserDAO;
+import model.User;
+
+public class UserServiceImp implements UserService {
+	UserDAO userDao;
+	
+	@Override
+	public User getUserById(long userId) {
+		// TODO Auto-generated method stub
+		User user = userDao.getUserById(userId);
+		return user;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		User user = userDao.getUserByEmail(email);
+		return user;
+	}
+
+	@Override
+	public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+		// TODO Auto-generated method stub
+		List <User> users = userDao.getUsersByName(name, pageSize, pageNum);
+		return null;
+	}
+
+	@Override
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+		User user = userDao.createUser(user);
+		return user;
+	}
+
+	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		User user = userDao.updateUser(user);
+		return null;
+	}
+
+	@Override
+	public boolean deleteUser(long userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
